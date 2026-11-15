@@ -7,7 +7,6 @@ Converts user queries to Ticket Tool documentation Q&A via Gemini
 import os
 import sys
 import logging
-from dotenv import load_dotenv
 import discord
 from discord.ext import commands
 from google import genai
@@ -28,12 +27,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Load environment variables from .env file
-load_dotenv()
-
 # Get tokens/keys from environment
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+DISCORD_TOKEN = self.env.BOT_TOKEN
+GOOGLE_API_KEY = self.env.GEMINI_API_KEY
 
 # Validate required env vars
 if not DISCORD_TOKEN:
